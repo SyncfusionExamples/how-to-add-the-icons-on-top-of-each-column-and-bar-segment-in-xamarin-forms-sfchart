@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DataMarkerIcon"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             x:Class="DataMarkerIcon.MainPage" Padding="0,20,0,0">
+    
+    <ContentPage.Resources>
+    <ResourceDictionary>
+        <local:ChartImageConverter x:Key="imageConverter"></local:ChartImageConverter>
+        <DataTemplate x:Key="icon">
+            <Image x:Name="image" Source="{Binding YValue, Converter={StaticResource imageConverter}}" WidthRequest="25" HeightRequest="25"/>
+        </DataTemplate>
+    </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <chart:SfChart x:Name="Chart">
+        
+        <chart:SfChart.BindingContext>
+            <local:ViewModel/>
+        </chart:SfChart.BindingContext>
+
+        <chart:SfChart.PrimaryAxis>
+            <chart:CategoryAxis/>
+        </chart:SfChart.PrimaryAxis>
+
+        <chart:SfChart.SecondaryAxis>
+            <chart:NumericalAxis/>
+        </chart:SfChart.SecondaryAxis>
+
+        <chart:SfChart.Series>
+            <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="XValue" YBindingPath="YValue">
+                <chart:ColumnSeries.DataMarker>
+                    <chart:ChartDataMarker ShowLabel="True" LabelTemplate="{StaticResource icon}">
+                        <chart:ChartDataMarker.LabelStyle>
+                            <chart:DataMarkerLabelStyle LabelPosition="Inner"/>
+                        </chart:ChartDataMarker.LabelStyle>
+                    </chart:ChartDataMarker>
+                </chart:ColumnSeries.DataMarker>
+            </chart:ColumnSeries>
+        </chart:SfChart.Series>
+    </chart:SfChart>
+
+</ContentPage>
