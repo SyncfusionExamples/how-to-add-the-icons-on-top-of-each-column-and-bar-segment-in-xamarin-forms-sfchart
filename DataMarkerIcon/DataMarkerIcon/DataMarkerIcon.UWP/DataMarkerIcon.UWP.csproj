@@ -145,8 +145,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
-	<PackageReference Include="Syncfusion.Xamarin.SfChart" Version="*" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.6" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="*" />
     <PackageReference Include="Xamarin.Forms" Version="*" />
   </ItemGroup>
   <ItemGroup>
